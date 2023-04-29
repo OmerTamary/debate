@@ -11,9 +11,12 @@ import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import ReccomendedPage from './pages/ReccomendedPage';
 import ExplorePage from './pages/ExplorePage';
+import HomePage from './pages/HomePage';
 import CreateRoomPage from './pages/CreateRoomPage'
 import ConversationRoomPage from './pages/ConversationRoomPage';
 import RoomPage from './pages/RoomPage';
+import ProfilePage  from './pages/ProfilePage';
+
 
 // ----------------------------------------------------------------------
 
@@ -23,12 +26,13 @@ export default function Router() {
       path: '/dashboard',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/recommended" />, index: true },
+        { element: <Navigate to="/dashboard/home" />, index: true },
+        { path: 'Home', element: <HomePage /> },
         { path: 'explore', element: <ExplorePage /> },
-        { path: 'recommended', element: <ReccomendedPage /> },
         { path: 'createRoom', element: <CreateRoomPage/> },
         { path: 'conversation', element: <ConversationRoomPage /> },
         { path: 'room', element: <RoomPage /> },
+        { path: 'Profile', element: <ProfilePage /> },
       ],
     },
     {
@@ -38,7 +42,7 @@ export default function Router() {
     {
       element: <SimpleLayout />,
       children: [
-        { element: <Navigate to="/dashboard/recommended" />, index: true },
+        { element: <Navigate to="/dashboard/home" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],
